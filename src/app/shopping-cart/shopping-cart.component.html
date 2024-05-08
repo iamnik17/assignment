@@ -1,0 +1,14 @@
+<form [formGroup]="reactiveFormGroup" (ngSubmit)="onsubmit()">
+
+    <input type="text" formControlName="FirstName" class="form-control" required="">
+    <input type="text" formControlName="LastName" class="form-control" required="">
+
+    <input type="text" formControlName="emalId" class="form-control" required="">
+
+    <input type="text" formControlName="password" class="form-control" required="">
+    <input type="text" formControlName="city" class="form-control" required="">
+
+    <input formControlName="state" class="form-control" required="">
+
+    <button type="submit">Button</button>
+</form>

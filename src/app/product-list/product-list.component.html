@@ -1,0 +1,30 @@
+<div class="container">
+    <!-- Filter Input -->
+    <mat-form-field appearance="fill">
+        <mat-label>Filter by Name</mat-label>
+        <input matInput (input)="applyFilter($event)">
+    </mat-form-field>
+
+    <!-- Sorting Buttons -->
+    <div class="sorting-buttons">
+        <button mat-button (click)="sortByPriceAscending()">Sort by Price (Low to High)</button>
+        <button mat-button (click)="sortByPriceDescending()">Sort by Price (High to Low)</button>
+    </div>
+
+    <!-- Product Cards -->
+    <mat-card *ngFor="let product of filteredProducts" class="product-card">
+        <mat-card-header>
+            <div mat-card-avatar class="product-image"></div>
+            <mat-card-title>{{ product.name }}</mat-card-title>
+            <mat-card-subtitle>Price: ${{ product.price }}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image [src]="product.image" alt="Product Image">
+        <mat-card-content>
+            <p>{{ product.description }}</p>
+            <!-- Additional attributes -->
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button color="primary" (click)="viewProductDetails(product)">View Details</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

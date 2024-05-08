@@ -1,0 +1,41 @@
+<!-- employee.component.html -->
+<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+    <label>First Name:</label>
+    <input type="text" formControlName="firstName">
+
+
+    <label>Last Name:</label>
+    <input type="text" formControlName="lastName">
+
+
+    <label>Email:</label>
+    <input type="email" formControlName="email">
+
+    <label>Date of Birth:</label>
+    <input type="date" formControlName="dob">
+
+
+    <label>Gender:</label>
+    <select formControlName="gender">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+    </select>
+
+
+    <label>Education:</label>
+    <input type="text" formControlName="education">
+
+
+    <label>Company:</label>
+    <input type="text" formControlName="company">
+
+
+    <label>Experience:</label>
+    <input type="number" formControlName="experience">
+
+
+    <label>Package:</label>
+    <input type="text" formControlName="package">
+
+    <button type="submit">Add Employee</button>
+</form>

@@ -1,0 +1,70 @@
+<!-- <div class="container">
+
+  <div class="row">
+    <div class="col-4">
+      
+    </div>
+  </div>
+  <mat-grid-list cols="3" rowHeight="400px" gutterSize="20px">
+    <mat-grid-tile *ngFor="let prod of pagedProducts">
+      <mat-card class="product-card">
+       
+        <img mat-card-image [src]="prod.thumbnail" alt="Product Image" class="product-image" />
+        <mat-card-content class="product-details">
+          <div class="title">{{ prod.title }}</div>
+          <div class="brand">{{ prod.brand }}</div>
+          <div class="description">{{ prod.description }}</div>
+        </mat-card-content>
+       
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div> -->
+
+<!-- Product Section - Start -->
+<section>
+  <div class="container">
+    <mat-paginator [length]="totalProducts" [pageSize]="pageSize" (page)="pageChanged($event)" class="mt-5">
+    </mat-paginator>
+    <div class="row g-4 py-5">
+      <div class="col-md-3" *ngFor="let prod of pagedProducts">
+        <div class="product-single-card">
+          <div class="product-top-area">
+            <div class="product-img">
+              <div class="first-view">
+                <img [src]="prod.thumbnail" alt="Product Image" class="product-image">
+              </div>
+              <div class="hover-view">
+                <img [src]="prod.thumbnail" alt="Product Image" class="product-image">
+              </div>
+            </div>
+
+          </div>
+          <div class="product-info">
+            <h6 class="product-category">{{ prod.title }}</h6>
+            <h6 class="product-title text-truncate">{{ prod.brand }}</h6>
+            <h6 class="product-title text-truncate">{{ prod.description }}</h6>
+
+            <div class="d-flex flex-wrap align-items-center py-2">
+              <div class="old-price">
+                ₹{{prod.oldPrice}}
+              </div>
+              <div class="new-price">
+                ₹{{prod.newPrice}}
+              </div>
+              <mat-card-actions class="actions d-flex justify-content-between mt-4">
+                <div class="cart">
+                  <button mat-button color="primary" (click)="addToCart(prod)">Add to Cart</button>
+                </div>
+                <div class="details">
+                  <button mat-button color="accent" (click)="details(prod)">Details</button>
+                </div>
+              </mat-card-actions>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

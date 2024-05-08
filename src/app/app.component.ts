@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'fatakpayecom';
+  data = {
+    name: "nikhl",
+    age: 32
+  }
+  // updateData(item: any) {
+  //   console.log(item)
+  // }
+  updateData() {
+    // this.data = Math.random()
+  }
 }

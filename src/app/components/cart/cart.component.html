@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row" *ngIf="cartItems.length > 0; else emptyCart">
+        <div *ngFor="let item of cartItems" class="cart-item col-md-6 col-6 col-sm-12">
+            <img [src]="item.product.thumbnail" alt="{{ item.product.name }} Image">
+            <div>{{ item.product.name }}</div>
+            <div>Quantity: <input type="number" class="form-control" [(ngModel)]="item.quantity"
+                    (change)="updateQuantity(item.product.id, item.quantity)" min="1"></div>
+            <div>Shipping Charge 100</div>
+            <div>service Tax 10 %</div>
+
+            <div>Price: ₹{{ item.product.price }}</div>
+            <div>Total: ₹{{ item.product.price * item.quantity }}</div>
+            <button class="btn btn-danger" (click)="removeItem(item.product.id)">Remove</button>
+        </div>
+        <div class="subtotal"><b>Subtotal: ₹{{ subtotal }}</b></div>
+        <div class="">
+            <button class="btn btn-primary" (click)="checkout()">Checkout</button>
+        </div>
+
+        <!-- Add tax, shipping, and total if needed -->
+    </div>
+</div>
+
+<ng-template #emptyCart>
+    <p>Your cart is empty.</p>
+</ng-template>
